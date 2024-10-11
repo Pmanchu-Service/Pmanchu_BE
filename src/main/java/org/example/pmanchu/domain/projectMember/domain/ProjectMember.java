@@ -1,11 +1,15 @@
 package org.example.pmanchu.domain.projectMember.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.example.pmanchu.domain.project.domain.Project;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
 @Table(name = "project_member")
+@Getter
+@NoArgsConstructor
 public class ProjectMember {
     @Id
     @Column(insertable=false, updatable=false)
