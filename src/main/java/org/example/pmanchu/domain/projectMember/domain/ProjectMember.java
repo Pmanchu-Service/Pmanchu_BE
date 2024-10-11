@@ -8,8 +8,9 @@ import org.example.pmanchu.domain.user.domain.User;
 @Table(name = "project_member")
 public class ProjectMember {
     @Id
+    @Column(insertable=false, updatable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long projectMemberId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id",  nullable = false)
