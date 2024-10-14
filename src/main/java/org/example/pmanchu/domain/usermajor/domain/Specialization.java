@@ -1,6 +1,6 @@
 package org.example.pmanchu.domain.usermajor.domain;
 
-public enum Major {
+public enum Specialization {
     FE,
     BE,
     DevOps,

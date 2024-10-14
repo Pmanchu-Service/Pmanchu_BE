@@ -17,5 +17,5 @@ public class UserMajor {
     private User userId;
 
     @Column(nullable = false)
-    private String specialization;
+    private Specialization specialization;
 }
