@@ -29,5 +29,5 @@ public class Plan {
 
     @CreatedDate
     @Column(name = "created_at", nullable = false)
-    private Date created_at;
+    private Date createdAt;
 }
