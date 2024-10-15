@@ -9,8 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "plan")
 @Getter
+@Table(name = "tbl_plan")
 @NoArgsConstructor
 public class Plan {
     @Id
@@ -19,7 +19,7 @@ public class Plan {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "projectId",  nullable = false)
-    private Project project;
+    private Project projectId;
 
     @Column(nullable = false)
     private String title;

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
-@Table(name = "user_Link")
+@Table(name = "tbl_user_link")
 @Getter
 @NoArgsConstructor
 public class UserLink {

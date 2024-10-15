@@ -9,7 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "report")
+@Table(name = "tbl_report")
 @Getter
 @NoArgsConstructor
 public class Report {

@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "notification")
+@Table(name = "tbl_notification")
 @Getter
 @NoArgsConstructor
 public class Notification {

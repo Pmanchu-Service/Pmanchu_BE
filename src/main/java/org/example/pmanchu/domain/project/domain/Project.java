@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "project")
+@Table(name = "tbl_project")
 @Getter
 @NoArgsConstructor
 public class Project {
@@ -19,6 +19,6 @@ public class Project {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
-    private String status;
+    @Enumerated()
+    private Status status;
 }

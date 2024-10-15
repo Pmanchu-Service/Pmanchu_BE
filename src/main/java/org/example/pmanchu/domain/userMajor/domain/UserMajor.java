@@ -1,11 +1,11 @@
-package org.example.pmanchu.domain.usermajor.domain;
+package org.example.pmanchu.domain.userMajor.domain;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
-@Table(name = "user_major")
+@Table(name = "tbl_user_major")
 @NoArgsConstructor
 public class UserMajor {
     @Id
@@ -16,6 +16,6 @@ public class UserMajor {
     @JoinColumn(name = "user_id",  nullable = false)
     private User userId;
 
-    @Column(nullable = false)
+    @Enumerated()
     private Specialization specialization;
 }
