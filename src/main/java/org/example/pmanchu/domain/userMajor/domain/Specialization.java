@@ -1,11 +1,12 @@
-package org.example.pmanchu.domain.usermajor.domain;
+package org.example.pmanchu.domain.userMajor.domain;
 
 public enum Specialization {
     FE,
     BE,
-    DevOps,
+    DEVOPS,
     IOS,
     AOS,
-    Flutter,
-    Embedded;
+    FLUTTER,
+    EMBEDED,
+    SECURITY;
 }
