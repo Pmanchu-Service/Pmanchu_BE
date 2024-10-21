@@ -19,6 +19,6 @@ public class Project {
     @Column(nullable = false)
     private String description;
 
-    @Enumerated()
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

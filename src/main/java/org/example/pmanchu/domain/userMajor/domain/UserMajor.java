@@ -16,6 +16,6 @@ public class UserMajor {
     @JoinColumn(name = "user_id",  nullable = false)
     private User userId;
 
-    @Enumerated()
+    @Enumerated(EnumType.STRING)
     private Specialization specialization;
 }
