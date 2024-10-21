@@ -7,7 +7,7 @@ import org.example.pmanchu.domain.project.domain.Project;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
-@Table(name = "project_like")
+@Table(name = "tbl_project_like")
 @Getter
 @NoArgsConstructor
 public class ProjectLike {
