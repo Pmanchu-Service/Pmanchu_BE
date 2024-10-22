@@ -1,4 +1,4 @@
 package org.example.pmanchu.domain.project.controller;
 
-public class Controller {
+public class ProjectController {
 }
