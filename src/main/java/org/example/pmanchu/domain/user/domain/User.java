@@ -24,12 +24,22 @@ public class User {
     private String githubUsername;
 
     @Column( nullable = true)
-    private String introductoin;
+    private String introduction;
+
+
+    @Column( nullable = true)
+    private String shortIntroduction;
 
     @Builder
-    public User(String githubUsername, Long githubId) {
+    public User(String githubUsername, Long githubId,String email) {
         this.githubUsername = githubUsername;
         this.githubId = githubId;
+        this.email = email;
+    }
+
+    public void addInfo(String introduction, String shortIntroduction) {
+        this.introduction = introduction;
+        this.shortIntroduction = shortIntroduction;
     }
 
 }
