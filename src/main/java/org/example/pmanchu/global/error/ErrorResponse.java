@@ -12,6 +12,6 @@ public class ErrorResponse {
     ErrorResponse(int status,String code,String message) {
         this.status = status;
         this.message = message;
-    }
+      }
 
 }
