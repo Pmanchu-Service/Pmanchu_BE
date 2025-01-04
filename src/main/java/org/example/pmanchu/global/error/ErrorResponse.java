@@ -9,7 +9,7 @@ public class ErrorResponse {
     private final String message;
 
     @Builder
-    ErrorResponse(int status,String code,String message) {
+    ErrorResponse(int status,String message) {
         this.status = status;
         this.message = message;
       }
