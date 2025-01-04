@@ -11,5 +11,4 @@ import org.example.pmanchu.domain.project.domain.Status;
 public class ProjectCreateRequest {
     private String title;
     private String description;
-    private Status status;
 }
