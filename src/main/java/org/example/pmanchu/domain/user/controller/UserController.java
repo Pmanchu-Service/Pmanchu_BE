@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.pmanchu.domain.user.dto.request.UserAddInfoRequest;
 import org.example.pmanchu.domain.user.dto.request.UserLoginRequest;
 import org.example.pmanchu.domain.user.service.UserAddInfoService;
+import org.example.pmanchu.domain.user.service.UserDeleteService;
 import org.example.pmanchu.domain.user.service.UserGithubSignupService;
 import org.example.pmanchu.domain.user.service.UserReissueService;
 import org.example.pmanchu.global.security.jwt.dto.TokenResponse;
@@ -18,6 +19,7 @@ public class UserController {
     private final UserGithubSignupService userGithubSignupService;
     private final UserAddInfoService userAddInfoService;
     private final UserReissueService userReissueService;
+    private final UserDeleteService userDeleteService;
 
     @PostMapping("/login")
     public TokenResponse signup(@RequestBody UserLoginRequest request) {
@@ -29,6 +31,11 @@ public class UserController {
     @PostMapping("/reissue")
     public TokenResponse reissue(@RequestHeader(name = "refresh-token") String token) {
         return userReissueService.reissue(token);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete() {
+        userDeleteService.delete();
     }
 
     @PostMapping("/update")
