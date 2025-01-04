@@ -21,4 +21,8 @@ public class UserLink {
     @Column(nullable = false)
     private String url;
 
+    public UserLink(User user, String s) {
+        this.userId = user;
+        this.url = s;
+    }
 }
