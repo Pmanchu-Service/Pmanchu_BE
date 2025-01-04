@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class ProjectCreateService {
     private final ProjectRepository projectRepository;
 
-    public Project createProject(ProjectCreateRequest projectCreateRequest) {
+    public Project execute(ProjectCreateRequest projectCreateRequest) {
         Project project = new Project(
                 projectCreateRequest.getTitle(),
                 projectCreateRequest.getDescription(),
