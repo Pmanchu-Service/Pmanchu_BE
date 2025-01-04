@@ -1,9 +1,7 @@
 package org.example.pmanchu.domain.user.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,17 +11,35 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column(nullable = false)
+    @Column( nullable = true)
     private String email;
 
-    @Column(unique = true, nullable = true, name = "github_id")
+    @Column( name = "github_id")
     private Long githubId;
 
-    @Column(unique = true, nullable = true, name = "github_username")
+    @Column( name = "github_username")
     private String githubUsername;
 
-    @Column(nullable = false)
-    private String introductoin;
+    @Column( nullable = true)
+    private String introduction;
+
+
+    @Column( nullable = true)
+    private String shortIntroduction;
+
+    @Builder
+    public User(String githubUsername, Long githubId,String email) {
+        this.githubUsername = githubUsername;
+        this.githubId = githubId;
+        this.email = email;
+    }
+
+    public void addInfo(String introduction, String shortIntroduction) {
+        this.introduction = introduction;
+        this.shortIntroduction = shortIntroduction;
+    }
+
 }

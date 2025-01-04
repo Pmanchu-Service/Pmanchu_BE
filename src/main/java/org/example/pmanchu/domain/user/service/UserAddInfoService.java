@@ -1,0 +1,21 @@
+package org.example.pmanchu.domain.user.service;
+
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.example.pmanchu.domain.user.domain.User;
+import org.example.pmanchu.domain.user.dto.request.UserAddInfoRequest;
+import org.example.pmanchu.domain.user.facade.UserFacade;
+import org.example.pmanchu.domain.user.repository.UserRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class UserAddInfoService {
+    private final UserFacade userFacade;
+
+    @Transactional
+    public void addUserInfo(UserAddInfoRequest request) {
+        User user = userFacade.getCurrentUser();
+        user.addInfo(request.getIntroduction(), request.getShortIntroduction());
+    }
+}
