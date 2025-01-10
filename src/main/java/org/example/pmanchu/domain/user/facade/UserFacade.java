@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.example.pmanchu.domain.user.domain.User;
 import org.example.pmanchu.domain.user.exception.UserNotFoundException;
 import org.example.pmanchu.domain.user.repository.UserRepository;
-import org.example.pmanchu.global.security.auth.AuthDetailsService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 

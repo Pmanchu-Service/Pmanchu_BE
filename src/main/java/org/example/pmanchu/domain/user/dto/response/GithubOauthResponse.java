@@ -7,4 +7,8 @@ public class GithubOauthResponse {
     private String login;
     private Long id;
     private String email;
+
+    public void addEmail(String email) {
+        this.email = email;
+    }
 }
