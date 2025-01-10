@@ -3,6 +3,7 @@ package org.example.pmanchu.domain.user.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.pmanchu.domain.user.dto.request.UserAddInfoRequest;
 import org.example.pmanchu.domain.user.dto.request.UserLoginRequest;
 import org.example.pmanchu.domain.user.service.UserAddInfoService;
