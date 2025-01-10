@@ -3,6 +3,7 @@ package org.example.pmanchu.domain.user.service;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.example.pmanchu.domain.user.client.GitUserEmailClient;
 import org.example.pmanchu.domain.user.client.GithubAccessTokenClient;
 import org.example.pmanchu.domain.user.client.GithubUserInfoClient;
 import org.example.pmanchu.domain.user.domain.User;
@@ -21,10 +22,12 @@ import java.util.Arrays;
 @Service
 @RequiredArgsConstructor
 public class UserGithubSignupService {
-    private final GithubAccessTokenClient githubClient;
-    private final GithubUserInfoClient githubGetUser;
+    private final GithubAccessTokenClient githubAccessTokenClient;
+    private final GithubUserInfoClient githubUserInfoClient;
+    private final GitUserEmailClient gitUserEmailClient;
     private final UserRepository userRepository;
     private final JwtProvider jwtProvider;
+
 
     @Value("${spring.security.oauth2.client.registration.github.client-id}")
     private String clientId;
@@ -36,8 +39,14 @@ public class UserGithubSignupService {
 
         try{
             GithubAccessTokenRequest codeRequest = new GithubAccessTokenRequest(clientId, clientSecret, loginRequest.getCode());
-            String codeResponse = githubClient.signup(codeRequest);
-            GithubOauthResponse userInfo = githubGetUser.getUser("Bearer " + changeShape(codeResponse).accessToken);
+            String codeResponse = githubAccessTokenClient.signup(codeRequest);
+            GitResponse gitResponse = changeShape(codeResponse);
+            GithubOauthResponse userInfo = githubUserInfoClient.getUser("Bearer " + gitResponse.accessToken);
+            if(userInfo.getEmail() == null){
+                System.out.println(gitResponse.accessToken);
+                userInfo.addEmail(gitUserEmailClient.getUserEmails("Bearer "+changeShape(codeResponse).accessToken).get(0).getEmail());
+            }
+            System.out.println("fuck");
             if (!userRepository.existsByGithubId(userInfo.getId())) {
                 User user = User.builder()
                         .githubId(userInfo.getId())
