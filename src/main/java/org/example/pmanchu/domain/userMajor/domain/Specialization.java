@@ -8,5 +8,6 @@ public enum Specialization {
     AOS,
     FLUTTER,
     EMBEDED,
-    SECURITY;
+    SECURITY,
+    GAME;
 }
