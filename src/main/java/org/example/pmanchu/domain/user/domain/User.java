@@ -14,8 +14,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    @Column(nullable = true)
+    private String username;
+
     @Column( nullable = true)
     private String email;
+
+    @Column( nullable = true)
+    private Long year;
 
     @Column( name = "github_id")
     private Long githubId;
@@ -37,9 +43,11 @@ public class User {
         this.email = email;
     }
 
-    public void addInfo(String introduction, String shortIntroduction) {
+    public void addInfo(String introduction, String shortIntroduction, String username, Long year) {
         this.introduction = introduction;
         this.shortIntroduction = shortIntroduction;
+        this.username = username;
+        this.year = year;
     }
 
 }
