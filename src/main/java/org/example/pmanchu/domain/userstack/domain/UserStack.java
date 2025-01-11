@@ -1,12 +1,13 @@
 package org.example.pmanchu.domain.userstack.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
 @Table(name = "tbl_user_stack")
+@Getter
 @NoArgsConstructor
 public class UserStack {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
