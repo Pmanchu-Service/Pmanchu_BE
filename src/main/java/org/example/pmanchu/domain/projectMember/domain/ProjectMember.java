@@ -25,5 +25,5 @@ public class ProjectMember {
     private User userId;
 
     @Column(nullable = false)
-    private String role;
+    private ProjectMemberRole role;
 }
