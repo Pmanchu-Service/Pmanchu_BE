@@ -30,3 +30,16 @@ spring:
           github:
             client-id: ${CLIENT_ID}
             client-secret: ${CLIENT_SECRET}
+cloud:
+  aws:
+    credentials:
+      accessKey: ${AWS_ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: {AWS_S3_BUCKET_NAME}
