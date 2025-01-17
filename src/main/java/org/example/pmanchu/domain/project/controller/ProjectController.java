@@ -1,5 +1,6 @@
 package org.example.pmanchu.domain.project.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.example.pmanchu.domain.project.domain.Project;
 import org.example.pmanchu.domain.project.dto.request.ProjectCreateRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProjectController {
     private final ProjectCreateService projectCreateService;
 
+    @Operation(summary = "프로젝트 생성", description = "프로젝트가 생성됩니다")
     @PostMapping("/generate")
     public Project ProjectCreate(@RequestBody ProjectCreateRequest projectCreateRequest) {
         return projectCreateService.execute(projectCreateRequest);
