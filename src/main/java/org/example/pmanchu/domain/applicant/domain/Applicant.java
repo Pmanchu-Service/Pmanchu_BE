@@ -1,4 +1,4 @@
-package org.example.pmanchu.domain.project.domain;
+package org.example.pmanchu.domain.applicant.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
