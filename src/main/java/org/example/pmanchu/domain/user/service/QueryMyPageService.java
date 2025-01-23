@@ -1,6 +1,8 @@
 package org.example.pmanchu.domain.user.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.pmanchu.domain.applicant.domain.Applicant;
+import org.example.pmanchu.domain.applicant.repository.ApplicantRepository;
 import org.example.pmanchu.domain.project.domain.Project;
 import org.example.pmanchu.domain.project.domain.Status;
 import org.example.pmanchu.domain.projectMember.domain.ProjectMember;
@@ -27,6 +29,7 @@ public class QueryMyPageService {
     private final UserStackRepository userStackRepository;
     private final UserMajorRepository userMajorRepository;
     private final UserLinkRepository userLinkRepository;
+    private final ApplicantRepository applicantRepository;
 
 
     public QueryMyPageResponse queryMyPage(Long userId){
@@ -34,6 +37,7 @@ public class QueryMyPageService {
         List<ProjectMember> projectMembers = projectMemberRepository.findProjectMembersByUserId(user);
         List<Project> inProgressProjects = projectMembers.stream().map(ProjectMember::getProjectId).filter(p->p.getStatus()!= Status.FINISHED).toList();
         List<Project> doneProjects = projectMembers.stream().map(ProjectMember::getProjectId).filter(p->p.getStatus()== Status.FINISHED).toList();
+        List<Project> appliedProjects = applicantRepository.findAllByUser(user).stream().map(s->s.getProject()).toList();
         List<UserStack> userStacks = userStackRepository.findAllByUserId(user);
         List<UserMajor> userMajors = userMajorRepository.findAllByUserId(user);
         List<UserLink> userLinks = userLinkRepository.findAllByUserId(user);
@@ -42,6 +46,7 @@ public class QueryMyPageService {
                 .name(user.getUsername())
                 .doneProjects(doneProjects)
                 .inProgressProjects(inProgressProjects)
+                .appliedProjects(appliedProjects)
                 .links(userLinks)
                 .introduction(user.getIntroduction())
                 .stacks(userStacks)

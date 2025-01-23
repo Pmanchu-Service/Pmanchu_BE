@@ -26,7 +26,7 @@ public class QueryMyPageResponse {
     private boolean isMyPage;
 
     @Builder
-    public QueryMyPageResponse(String name, List<UserMajor> specializations, List<UserStack> stacks, List<UserLink> links, String introduction, List<Project> inProgressProjects, List<Project> doneProjects, List<MyPageProject> appliedProjects, boolean isMyPage, Long year) {
+    public QueryMyPageResponse(String name, List<UserMajor> specializations, List<UserStack> stacks, List<UserLink> links, String introduction, List<Project> inProgressProjects, List<Project> doneProjects, List<Project> appliedProjects, boolean isMyPage, Long year) {
         this.name = name;
         this.specializations = specializations.stream().map(UserMajor::getSpecialization).toList();
         this.stacks = stacks.stream().map(UserStack::getStack).toList();
@@ -34,7 +34,7 @@ public class QueryMyPageResponse {
         this.introduction = introduction;
         this.inProgressProjects = inProgressProjects.stream().map(MyPageProject::new).toList();
         this.doneProjects = doneProjects.stream().map(MyPageProject::new).toList();;
-        this.appliedProjects = appliedProjects;
+        this.appliedProjects = appliedProjects.stream().map(MyPageProject::new).toList();
         this.isMyPage = isMyPage;
         this.year = year;
     }
