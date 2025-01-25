@@ -25,7 +25,11 @@ public class UserAddInfoService {
     @Transactional
     public void addUserInfo(UserAddInfoRequest request) {
         User user = userFacade.getCurrentUser();
-        user.addInfo(request.getIntroduction(), request.getShortIntroduction());
+        user.addInfo(request.getIntroduction(), request.getShortIntroduction(), request.getName(),request.getYears());
+
+        userLinkRepository.deleteByUserId(user);
+        userStackRepository.deleteByUserId(user);
+        userMajorRepository.deleteByUserId(user);
         request.getMajors()
                 .forEach(s->userMajorRepository.save(new UserMajor(user,s)));
         request.getStacks()

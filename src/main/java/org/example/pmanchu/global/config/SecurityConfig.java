@@ -33,7 +33,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers("/auth/login", "/auth/reissue").permitAll()
-                                .requestMatchers("/auth/update","auth/delete").authenticated()
+                                .requestMatchers("/auth/update","/auth/delete").authenticated()
+                                .requestMatchers("/user/*","/user/users","/user/users/filter").authenticated()
                                 .requestMatchers("/swagger-ui/index.html",
                                         // Swagger 허용 URL
                                         "/v2/api-docs", "/v3/api-docs", "/v3/api-docs/**", "/swagger-resources",

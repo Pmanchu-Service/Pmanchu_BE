@@ -3,12 +3,14 @@ package org.example.pmanchu.domain.projectMember.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.example.pmanchu.domain.project.domain.Project;
 import org.example.pmanchu.domain.user.domain.User;
 
 @Entity
 @Table(name = "tbl_project_member")
 @Getter
+@Setter
 @NoArgsConstructor
 public class ProjectMember {
     @Id
@@ -16,7 +18,7 @@ public class ProjectMember {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long projectMemberId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "project_id",  nullable = false)
     private Project projectId;
 

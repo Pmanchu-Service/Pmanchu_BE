@@ -12,7 +12,7 @@ public class UserAddInfoRequest {
     private String name;
     private List<String> Stacks;
     private List<Specialization> majors;
-    private int years;
+    private Long years;
     private String introduction;
     private String shortIntroduction;
     private String contact;
